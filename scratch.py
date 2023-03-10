@@ -2,14 +2,21 @@ class Stack:
     def __init_(self, vol): #tworzy nowy stos o pojemności vol
         self.items = [0] * vol
         self.size = 0
+        self.vol = vol
 
     def push(self, x): #dodaje element x do stosu self
-        self.items[self.size] = x
-        self.size += 1
+        if self.size < self.vol:
+            self.items[self.size] = x
+            self.size += 1
+        else:
+            print('Przepełnienie stosu')
 
     def pop(self): # usuwa element ze stosu self
-        self.size -= 1
-        return self.items[self.size]
+        if self.size > 0:
+            self.size -= 1
+            return self.items[self.size]
+        else:
+            print("Pusty stos")
 
     def print(self): #wypisuje elementy stosu
         print(self.items[:self.size])
