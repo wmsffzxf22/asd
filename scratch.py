@@ -21,47 +21,20 @@ class Stack:
     def print(self): #wypisuje elementy stosu
         print(self.items[:self.size])
 
-#s = Stack(10)
-#s.push('d')
-#s.push('h')
-#s.pop()
-#s.push('f')
-#s.push('s')
-#s.pop()
-#s.pop()
-#s.push('m')
-#print(s.items)
-#print(s.items[:s.size])
-#
-#
-#inny stos
-#s = Stack(5)
-#s.print()
-#s.push('a')
-#s.print()
-#s.pop()
-#s.print()
-#for x in 'bsgf':
-#   s.push(x)
-#
-#s.print()
-#s.pop()
-#s.pop()
-#s.push('k')
-#s.print()
-#
-#inne stosy
-#s1 = Stack(5)
-#s2 = Stack(5)
-#s3 = Stack(5)
-#for x in 'abcd'
-#   s1.push(x)
-#s1.print()
-#s2.push(s1.pop())
-#s2.print()
-#s3.push(s1.pop())
-#s3.print()
-#s1.print()
-#
+class Queue:
+    def __init__(self, vol): # tworzy kolejke o pojemności vol
+        self.items = [0] * vol
+        self.head, self.tail = 0, 0
+        self.vol = vol
 
+    def enqueue(self, x): #dodaje element x do kolejki
+        self.items[self.tail] = x
+        self.tail += 1
 
+    def dequeue(self): #usuwa element z kolejki
+        x = self.items[self.head]
+        self.head += 1
+        return x
+    
+    def print(self):
+        print(self.items[self.head:self.tail])
