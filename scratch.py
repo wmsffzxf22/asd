@@ -74,3 +74,18 @@ def poprawne(w):
 
 
 #2.6
+def to_binary(x):
+    s = Stack(50)
+    while x:
+        s.push(x % 2)
+        x = x // 2
+    wynik = ''
+    while not s.is_empty():
+        wynik+=str(s.pop())
+    return wynik
+
+while True:
+    w = input('Podaj liczbe: ')
+    if w == 'quit':
+        break
+    print(to_binary(int(w)))
