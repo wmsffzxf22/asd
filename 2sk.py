@@ -84,8 +84,31 @@ def to_binary(x):
         wynik+=str(s.pop())
     return wynik
 
+# while True:
+#     w = input('Podaj liczbe: ')
+#     if w == 'quit':
+#         break
+#     print(to_binary(int(w)))
+
+#2.7
+def odwrotne(w):
+    stos = Stack(len(w))
+    sl = {')': '(', '(': ')', '[': ']', ']': '[', '{': '}', '}': '{'}
+    for c in w:
+        if c in sl.values():
+            for n in sl.values():
+                if c == n :
+                    stos.push(sl[c])
+        else: stos.push(c)
+
+    wynik = ''
+    while not stos.is_empty():
+        wynik += stos.pop()
+
+    return wynik
+
 while True:
-    w = input('Podaj liczbe: ')
-    if w == 'quit':
+    w=input('Podaj slowo: ')
+    if w=='quit':
         break
-    print(to_binary(int(w)))
+    print(odwrotne(w))
